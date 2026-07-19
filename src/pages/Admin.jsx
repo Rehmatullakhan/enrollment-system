@@ -18,7 +18,7 @@ function Admin() {
   const addCourse = async (e) => {
     e.preventDefault(); // page reload na ho
     try {
-      await axios.post("http://localhost:5000/api/courses", form);
+      await axios.post("https://enrollment-system-backend-production.up.railway.app/api/courses", form);
       alert("Course Added! ✅");
       setForm({ title: "", description: "", capacity: "" }); // form clear
     } catch(err) {

@@ -7,7 +7,7 @@ function MyCourses() {
   const [search, setSearch] = useState("");
 
   const fetchCourses = async () => {
-    const res = await axios.get("http://localhost:5000/api/courses");
+    const res = await axios.get("https://enrollment-system-backend-production.up.railway.app/api/courses");
     // Yahan filter lagao
     const myEnrolled = res.data.filter(c =>
       c.enrolledStudents && c.enrolledStudents.includes(studentId)
