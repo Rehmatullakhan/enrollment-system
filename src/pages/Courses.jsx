@@ -3,11 +3,11 @@ import axios from "axios";
 
 function Courses() {
   const [courses, setCourses] = useState([]);
-  const [studentId, setStudentId] = useState(localStorage.getItem('studentId') || "");
+  const [studentId, setStudentId] = useState(localStorage.getItem('studentId'));
   const [search, setSearch] = useState("");
 
   const fetchCourses = async () => {
-    const res = await axios.get("http://localhost:5000/api/courses");
+    const res = await axios.get("https://enrollment-system-backend-production.up.railway.app/api/courses");
     setCourses(res.data);
   }
 
@@ -18,7 +18,7 @@ function Courses() {
     localStorage.setItem('studentId', studentId);
     
     try {
-      await axios.post("http://localhost:5000/api/enroll", {studentId, courseId});
+      await axios.post("https://enrollment-system-backend-production.up.railway.app/api/enroll", {studentId, courseId});
       alert("Enrolled Successfully! ✅");
       fetchCourses();
     } catch (err) {
